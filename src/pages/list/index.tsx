@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
 // import toast from 'react-hot-toast';
 import { Timestamp, collection, doc, getDocs, query, updateDoc, where } from 'firebase/firestore'
@@ -145,14 +145,15 @@ export function List() {
 
     return (
         <div>
-            <div className="m-4 flex">
-                <div className="w-1/4">
+            <h1 className="font-medium text-2xl my-4 text-center">Lista de Pedidos de Compra</h1>
+            <div className="m-4 flex border-b-2 border-gray-300">
+                {/* <div className="w-1/4">
                     <Link 
                         to="/" className="bg-slate-600 my-3 p-1 px-3 text-white font-medium rounded">
                         Acessar produtos
                     </Link>
-                </div>
-                <div className="flex flex-col w-2/4">
+                </div> */}
+                <div className="flex flex-col w-3/4">
                     <label>
                         <span className="ml-2">E-mail: </span>
                         <input type="email" name="email" placeholder="Endereço um e-mail"
@@ -167,7 +168,7 @@ export function List() {
                     </label>
                     <button onClick={filtrarLista}
                         className="ml-2 cursor-pointer bg-blue-500 text-white px-1 p-1 rounded-md
-                                   mt-2 w-1/4">
+                                   mt-1 mb-1 w-1/12">
                         Filtrar
                     </button>
                 </div>
@@ -176,7 +177,7 @@ export function List() {
                         <button className='bg-blue-600 text-white rounded-full font-medium px-2 p-1 my-2 
                                             flex items-center justify-center mr-2'
                                 onClick={atualizarStatus}>
-                            Alterações de status: {alter}
+                            Atualizar alterações de status: {alter}
                         </button>
                     ) : (
                         // <button className='bg-blue-600 text-white rounded-full font-medium px-2 p-1 my-2 
@@ -188,7 +189,7 @@ export function List() {
                 </div>
             </div>
 
-            <h1 className="m-4">Lista de pedidos</h1>
+            {/* <h1 className="m-4">Lista de pedidos</h1> */}
             {pedidos.length === 0 && (
                 <div className="flex flex-col justify-center items-center">
                     <strong>Lista de documentos vazia</strong>
@@ -226,12 +227,12 @@ export function List() {
                 ))
             )}
 
-            <div className="m-4">
+            {/* <div className="m-4">
                 <Link 
                     to="/" className="bg-slate-600 my-3 p-1 px-3 text-white font-medium rounded">
                     Acessar produtos
                 </Link>
-            </div>
+            </div> */}
         </div>
     )
 }

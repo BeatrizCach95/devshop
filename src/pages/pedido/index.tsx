@@ -118,7 +118,7 @@ export function Pedido() {
 
             {cart.map( (item) => (
                 <section    key={item.id}
-                            className="flex items-center justify-between border-b-2 border-gray-300">
+                            className="flex items-center justify-between border-b-2 border-gray-300 mx-4">
 
                     <img className='w-28' src={item.cover} alt={item.title}  />
 
@@ -142,12 +142,11 @@ export function Pedido() {
                 </section>
             ))}
 
-            <div className='flex justify-between mt-4'>
+            <div className='flex justify-between mt-4 mx-4'>
                 {cart.length !== 0 && (
-                    <button className='bg-blue-600 text-white rounded-full font-medium px-2 py-1 mt-2 flex items-center
-                    justify-center'
-                    onClick={encerrarProc}>
-                        Finalizar Pedido
+                    <button className='bg-blue-600 text-white rounded-full font-medium px-2 py-1 mt-2 
+                        flex items-center justify-center' onClick={encerrarProc}>
+                        Criar Pedido
                     </button>
                 )}
                 
