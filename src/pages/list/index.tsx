@@ -1,7 +1,7 @@
 // import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
 // import toast from 'react-hot-toast';
-import { Timestamp, collection, doc, getDocs, query, updateDoc, where } from 'firebase/firestore'
+import { Timestamp, collection, doc, getDocs, orderBy, query, updateDoc, where } from 'firebase/firestore'
 import { db } from '../../services/firebaseConnecton'
 
 interface ItemProps {
@@ -62,7 +62,7 @@ export function List() {
 
     async function loadTotalPedidos() {
         const docRef = collection(db, 'pedidos')
-        const q = query(docRef)
+        const q = query(docRef, orderBy("dtCriacao", "desc"))
 
         // setCid('master')
         setAdmin(true)
@@ -96,7 +96,7 @@ export function List() {
 
     async function loadPedidos(id: string) {
         const docRef = collection(db, 'pedidos')
-        const q = query(docRef, where("idCliente", "==", id))
+        const q = query(docRef, where("idCliente", "==", id), orderBy("dtCriacao", "desc"))
 
         // if(pedidos.length === 0) {
         const docSnap = await getDocs(q)
